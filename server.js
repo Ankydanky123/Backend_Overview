@@ -38,7 +38,7 @@ console.log(req.body);
                                                                                                                                                                                             
 // to write a query to store data into database connected
 
-const  query = `insert into contact_details(Name, Email, Contact, Message) Values('${req.body.name}', '${req.body.email}', ;${req.body.contact}', '${req.body.message}')`
+const  query = `insert into contact_details(Name, Email, Contact, Message) Values('${req.body.Name}', '${req.body.Email}', '${req.body.Contact}', '${req.body.Message}')`
 
 connection.query(query,(err , results)=>{
     if(err){
@@ -50,7 +50,6 @@ connection.query(query,(err , results)=>{
         res.status(200).send({data:results,detail:"data is inserted successfully"})
     }
 })
-
 
 })
 
