@@ -35,13 +35,29 @@ app.post('/send-message' ,(req,res)=>{
 
 console.log(req.body);
 
-res.send(req.body)                                                                                                                                                                                               
+                                                                                                                                                                                            
 // to write a query to store data into database connected
 
+const  query = `insert into contact_details(Name, Email, Contact, Message) Values('${req.body.name}', '${req.body.email}', ;${req.body.contact}', '${req.body.message}')`
+
+connection.query(query,(err , results)=>{
+    if(err){
+        console.log('Error in insering data into db',err.message)
+        res.status(400).send({data:err.message,detail:"there was an error inserting data"})
+    }
+    else{
+        console.log("Data is successfully inserted")
+        res.status(200).send({data:results,detail:"data is inserted successfully"})
+    }
+})
 
 
 })
 
+// 200 => ok task is done 
+// 201 is used to to say its is created.
+// 400 to say its a bad request .
+// 500 is the internal server error .
 
 // http://localhost:8000/send-message - > db
 
