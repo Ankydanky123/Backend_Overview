@@ -19,7 +19,9 @@ connection.connect((err)=>{
 if(err){
     console.log("Error in making connection", err)
 }
-console.log("database connected")
+else{
+    console.log("database connected")
+}
 })
 
 
@@ -35,6 +37,8 @@ console.log(req.body);
 
 res.send(req.body)                                                                                                                                                                                               
 // to write a query to store data into database connected
+
+
 
 })
 
